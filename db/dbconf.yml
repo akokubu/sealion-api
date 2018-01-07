@@ -1,0 +1,11 @@
+test:
+    driver: mysql
+    open: $TEST_DATABASE_URL
+
+development:
+    driver: mysql
+    open: $DATABASE_URL
+
+production:
+    driver: mysql
+    open: $DATABASE_URL
