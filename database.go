@@ -15,11 +15,11 @@ func init() {
 	var datasource string
 	if os.Getenv("DATABASE_URL") != "" {
 		// for Heroku
-		datasource = convert_datasource(os.Getenv("CLEARDB_DATABASE_URL"))
+		datasource = os.Getenv("DATABASE_URL")
 	} else {
-		// for local
-		datasource = "sealion:sealion@/sealion?charset=utf8&parseTime=true"
+		panic("DATABASE_URL is not set.")
 	}
+
 	db, err = gorm.Open("mysql", datasource)
 	if err != nil {
 		panic("failed to connect database")
